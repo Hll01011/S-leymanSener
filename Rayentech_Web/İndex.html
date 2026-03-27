@@ -1,0 +1,217 @@
+Sruhunu değiştirmemiz gerekiyor.
+
+Senin için şu anki kodlarını tamamen profesyonel, animasyonlu ve "Premium" hale getirecek revize edilmiş kodları hazırladım.
+
+Aşağıdaki kodları mevcut dosyalarının üzerine yapıştırırsan siten bir anda seviye atlayacak.
+
+1. index.html (Ana Yapı)
+
+Bunu index.html dosyandaki tüm kodların yerine yapıştır. (GSAP ve Fontları ekledim):
+
+code
+Html
+play_circle
+download
+content_copy
+expand_less
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayentech Otomasyon | Süleyman Şener</title>
+    <!-- Google Fonts - Premium Tipografi -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Özel Mouse İmleci (Awwwards Style) -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav>
+        <div class="logo">RAYENTECH<span>.</span></div>
+        <div class="nav-links">
+            <a href="#home">Giriş</a>
+            <a href="#services">Hizmetler</a>
+            <a href="#about">Hakkımda</a>
+            <a href="#contact">İletişim</a>
+        </div>
+        <a href="tel:05456836967" class="nav-cta">PROJE BAŞLAT</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h5 class="reveal-text">SÜLEYMAN ŞENER // OTOMASYON MÜHENDİSİ</h5>
+            <h1 class="main-title">Kümeslerde<br><span class="gradient-text">Dijital Devrim</span></h1>
+            <p class="hero-desc">Eskişehir, Bilecik ve Kütahya bölgelerinde yüksek verimli kümes otomasyon çözümleri sunuyoruz.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/905456836967" class="main-btn">WhatsApp Teklif Al</a>
+                <a href="#services" class="sec-btn">Hizmetleri Gör</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Neler Yapıyoruz<span>?</span></h2>
+            <div class="service-grid">
+                <div class="s-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>PLC & HMI</h3>
+                    <p>Fatek ve Veichi sistemleri ile kusursuz senaryo yönetimi.</p>
+                </div>
+                <div class="s-card">
+                    <i class="fas fa-wind"></i>
+                    <h3>Fan Kontrol</h3>
+                    <p>Isı ve nem sensörlü akıllı havalandırma sistemleri.</p>
+                </div>
+                <div class="s-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Pano Montaj</h3>
+                    <p>Endüstriyel standartlarda güvenli ve düzenli pano kurulumu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/905456836967" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Animasyon Kütüphaneleri -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+2. style.css (Tasarım ve Modern Görünüm)
+
+Bu CSS, sitenin o "ucuz" görüntüsünü silip "Mühendislik Firması" ciddiyeti katacak:
+
+code
+CSS
+download
+content_copy
+expand_less
+:root {
+    --bg: #030712;
+    --card-bg: #111827;
+    --accent: #3b82f6; /* Modern Mavi */
+    --text: #f3f4f6;
+    --gray: #9ca3af;
+}
+
+* { cursor: none; margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Custom Cursor */
+.cursor { width: 8px; height: 8px; background: var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9999; }
+.cursor-follower { width: 40px; height: 40px; border: 1px solid var(--accent); position: fixed; border-radius: 50%; pointer-events: none; z-index: 9998; transition: 0.1s; }
+
+/* Navigasyon */
+nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 25px 8%; position: fixed; width: 100%; z-index: 100;
+    background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(15px);
+}
+.logo { font-family: 'Syne', sans-serif; font-size: 24px; font-weight: 800; }
+.logo span { color: var(--accent); }
+.nav-links a { color: var(--text); text-decoration: none; margin: 0 15px; font-size: 14px; font-weight: 500; transition: 0.3s; opacity: 0.7; }
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+.nav-cta { background: var(--accent); color: white; padding: 10px 20px; text-decoration: none; border-radius: 4px; font-weight: 600; font-size: 13px; }
+
+/* Hero */
+.hero { height: 100vh; display: flex; align-items: center; padding: 0 10%; background: radial-gradient(circle at 80% 20%, #1e3a8a33, transparent); }
+.reveal-text { color: var(--accent); letter-spacing: 4px; font-size: 12px; margin-bottom: 20px; }
+.main-title { font-family: 'Syne', sans-serif; font-size: clamp(3rem, 7vw, 6rem); line-height: 1; margin-bottom: 30px; }
+.gradient-text { background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-desc { max-width: 600px; font-size: 1.1rem; color: var(--gray); margin-bottom: 40px; }
+
+/* Buttons */
+.main-btn { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; display: inline-block; font-weight: 600; margin-right: 15px; border-radius: 4px; }
+.sec-btn { border: 1px solid rgba(255,255,255,0.1); color: white; padding: 15px 35px; text-decoration: none; display: inline-block; border-radius: 4px; transition: 0.3s; }
+.sec-btn:hover { background: white; color: black; }
+
+/* Services */
+.services { padding: 100px 10%; }
+.section-title { font-family: 'Syne', sans-serif; font-size: 3rem; margin-bottom: 60px; }
+.section-title span { color: var(--accent); }
+.service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.s-card { background: var(--card-bg); padding: 50px 35px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); transition: 0.4s; }
+.s-card:hover { border-color: var(--accent); transform: translateY(-10px); }
+.s-card i { font-size: 40px; color: var(--accent); margin-bottom: 25px; display: block; }
+.s-card h3 { margin-bottom: 15px; font-size: 22px; }
+.s-card p { color: var(--gray); font-size: 15px; }
+
+/* WhatsApp Float */
+.wa-float { position: fixed; bottom: 30px; right: 30px; background: #22c55e; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3); z-index: 1000; text-decoration: none; }
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .main-title { font-size: 3rem; }
+    * { cursor: auto !important; }
+    .cursor, .cursor-follower { display: none; }
+}
+3. script.js (Hareket ve Ruh)
+
+Dosyayı oluştur ve içine bunu koy:
+
+code
+JavaScript
+download
+content_copy
+expand_less
+// 1. Mouse Follower
+const cursor = document.querySelector('.cursor');
+const follower = document.querySelector('.cursor-follower');
+
+document.addEventListener('mousemove', (e) => {
+    gsap.to(cursor, {x: e.clientX, y: e.clientY, duration: 0});
+    gsap.to(follower, {x: e.clientX - 16, y: e.clientY - 16, duration: 0.15});
+});
+
+// 2. Sayfa Açılış Animasyonu
+window.onload = () => {
+    const tl = gsap.timeline();
+
+    tl.from("nav", { y: -100, opacity: 0, duration: 1, ease: "power4.out" })
+      .from(".reveal-text", { opacity: 0, x: -20, duration: 0.5 })
+      .from(".main-title", { opacity: 0, y: 50, duration: 1, ease: "power4.out" }, "-=0.3")
+      .from(".hero-desc", { opacity: 0, y: 20, duration: 0.8 }, "-=0.5")
+      .from(".hero-actions", { opacity: 0, scale: 0.9, duration: 0.5 }, "-=0.5");
+};
+
+// 3. Scroll ile Kartların Gelmesi
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".s-card", {
+    scrollTrigger: {
+        trigger: ".services",
+        start: "top 70%",
+    },
+    y: 100,
+    opacity: 0,
+    stagger: 0.2,
+    duration: 1,
+    ease: "power3.out"
+});
+Ne Yapmalısın?
+
+Bu kodları GitHub'daki dosyalarınla değiştir.
+
+Commit et ve yükle.
+
+1-2 dakika bekle ve siteyi yenile.
+
+Sonuç: Site artık lacivert-siyah tonlarında, akıcı geçişli ve çok daha kurumsal duracaktır. Awwwards seviyesine yaklaşmak için tipografiyi ve mouse animasyonunu bu şekilde aktif etmelisin.
+
+Not: GitHub URL'indeki "S-leymanSener" kısmında 'ü' harfi yerine 'u' kullanman (suleymansener) ileride SEO için daha iyi olur.
