@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakkımda | Süleyman Şener - Otomasyon Mühendisi</title>
+    <meta name="description" content="Süleyman Şener - Otomasyon ve saha uygulama mühendisi. 10+ yıl tecrübe ile kümes otomasyon sistemleri.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2c5aa0;
+            --accent: #ff9500;
+            --light: #f5f7fa;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                background: var(--primary);
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* About Section */
+        .about {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+        }
+
+        /* Expertise Section */
+        .expertise {
+            background: var(--light);
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+
+        .expertise-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .expertise h2 {
+            color: var(--primary);
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .expertise-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .expertise-card ul {
+            list-style: none;
+        }
+
+        .expertise-card ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .expertise-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Service Areas */
+        .service-areas {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .service-areas h2 {
+            color: var(--primary);
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .area-card {
+            background: white;
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .area-card h3 {
+            color: var(--primary);
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .area-card p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* Values */
+        .values {
+            background: var(--primary);
+            color: white;
+            padding: 60px 20px;
+            margin: 60px 0 0 0;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .values h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .value-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .value-card p {
+            opacity: 0.95;
+            font-size: 14px;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--accent);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #0d1f2d;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1f2d;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">⚙️ KUMAĞ.COM</div>
+            <ul id="menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hizmetler.html">Hizmetler</a></li>
+                <li><a href="referanslar.html">Referanslar</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Hakkımda</h1>
+        <p>Süleyman Şener - Otomasyon Mühendisi</p>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Merhaba, Ben Süleyman Şener</h2>
+                <p>
+                    Otomasyon ve saha uygulama alanında 10+ yıl tecrübesiyle kümes otomasyon sistemleri üzerine uzmanlaşmış bir mühendisim. 
+                    Yüzlerce başarılı proje tamamlayarak binlerce çiftçinin verimliliğini artırmaya yardımcı oldum.
+                </p>
+                <p>
+                    Mühendislik eğitimimi aldıktan sonra, endüstriyel otomasyon sektöründe çalışmaya başladım. 
+                    Zaman içinde, tarım ve hayvancılık sektörünün büyük potansiyelini fark ederek kümes otomasyon sistemlerine yoğunlaştım.
+                </p>
+                <p>
+                    Bugün, Fatek PLC, Veichi HMI ve birçok profesyonel sistem üzerinde deneyim sahibi olup, 
+                    Eskişehir, Bilecik ve Kütahya bölgelerinde çiftçilerine hizmet vermeyi gurur duyarak yapıyorum.
+                </p>
+                <p>
+                    <strong>Motto:</strong> "Teknoloji ve tarımı birleştirerek, çiftçilerin hayatını kolaylaştırmak"
+                </p>
+            </div>
+            <div class="about-image">👨‍🔧</div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="expertise">
+        <div class="expertise-container">
+            <h2>Uzmanlık Alanlarım</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>PLC Programlama</h3>
+                    <ul>
+                        <li>Fatek PLC Yazılımı</li>
+                        <li>Kontrol Algoritmaları</li>
+                        <li>Sistem Tasarımı</li>
+                        <li>Hata Ayıklama</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>HMI Uygulamaları</h3>
+                    <ul>
+                        <li>Veichi HMI Panelleri</li>
+                        <li>Arayüz Tasarımı</li>
+                        <li>Veri Kaydı Sistemleri</li>
+                        <li>Raporlama Tools</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Elektrik İşleri</h3>
+                    <ul>
+                        <li>Kumanda Panası Tasarımı</li>
+                        <li>Kablolama ve Montaj</li>
+                        <li>Güvenlik Sistemleri</li>
+                        <li>Bakım ve Onarım</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <h3>Fan Sistemleri</h3>
+                    <ul>
+                        <li>Havalandırma Tasarımı</li>
+                        <li>Sıcaklık Kontrolü</li>
+                        <li>Tünel Havalandırması</li>
+                        <li>Verimlilik Optimizasyonu</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <h2>Hizmet Bölgelerim</h2>
+        <div class="areas-grid">
+            <div class="area-card">
+                <h3>📍 Eskişehir</h3>
+                <p>Merkez ve tüm ilçeler</p>
+            </div>
+            <div class="area-card">
+                <h3>📍 Bilecik</h3>
+                <p>Merkez ve tüm ilçeler</p>
+            </div>
+            <div class="area-card">
+                <h3>📍 Kütahya</h3>
+                <p>Merkez ve tüm ilçeler</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values">
+        <div class="values-container">
+            <h2>Çalışma Prensiplerım</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <h3>✓ Güvenbilirlik</h3>
+                    <p>Her projeyi tam sorumluluğunla tamamlarım. Müşteri memnuniyeti en büyük hedefimdir.</p>
+                </div>
+                <div class="value-card">
+                    <h3>✓ Kalite</h3>
+                    <p>Sertifikalı ve garantili endüstriyel malzeler kullanıp, standartlara uygun işler yaparım.</p>
+                </div>
+                <div class="value-card">
+                    <h3>✓ Hız</h3>
+                    <p>Acil durumlarda 24 saat içinde yerinde müdahaleye gelen bir ekibe sahibim.</p>
+                </div>
+                <div class="value-card">
+                    <h3>✓ İnovasyon</h3>
+                    <p>Teknolojik gelişmeleri takip ederek en yeni çözümleri müşterilerime sunuyorum.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about">
+        <div class="cta">
+            <h2>Hemen Bir Danışmanlık Talebinde Bulunun</h2>
+            <p>Kümenizin durumunu birlikte değerlendirelim</p>
+            <a href="iletisim.html" class="btn">İletişime Geç</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Süleyman Şener - Kümes Otomasyon Sistemleri. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905xxxxxxxxx?text=Merhaba%20Süleyman%20Bey,%20hakkınızı%20okudum,%20benim%20için%20çözüm%20sunabilir%20misiniz?" class="whatsapp-btn">💬</a>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

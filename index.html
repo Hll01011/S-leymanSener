@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kümes Otomasyon ve Havalandırma Sistemleri | Süleyman Şener</title>
+    <meta name="description" content="Profesyonel kümes otomasyon, fan kontrol ve havalandırma sistemleri. Eskişehir, Bilecik, Kütahya bölgesinde hizmet.">
+    <meta name="keywords" content="kümes otomasyon, fan kontrol, havalandırma sistemi, PLC otomasyon, tavuk kümesi, Eskişehir">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2c5aa0;
+            --accent: #ff9500;
+            --light: #f5f7fa;
+            --text: #333;
+            --border: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Menu */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                background: var(--primary);
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #ff8500;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+        }
+
+        /* Quick Intro Section */
+        .quick-intro {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .quick-intro h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: var(--primary);
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .intro-card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .intro-card h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .intro-card p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            background: var(--light);
+            padding: 60px 20px;
+            margin: 60px 0;
+        }
+
+        .why-us-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-us h2 {
+            color: var(--primary);
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .why-us-item {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .why-us-item h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .why-us-item p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* References Preview */
+        .references {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .references h2 {
+            color: var(--primary);
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .ref-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .ref-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .ref-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+        }
+
+        .ref-content {
+            padding: 20px;
+        }
+
+        .ref-content h3 {
+            color: var(--primary);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .ref-content p {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--primary);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin: 60px 0 0 0;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1f2d;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">⚙️ KUMAĞ.COM</div>
+            <ul id="menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hizmetler.html">Hizmetler</a></li>
+                <li><a href="referanslar.html">Referanslar</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>🐔 Kümes Otomasyon ve Havalandırma Sistemleri</h1>
+        <p>Verimli çiftçilik için akıllı teknoloji. Otomatik kontrol, düşük maliyetler, maksimum verim.</p>
+        <div class="hero-buttons">
+            <a href="tel:+905xxxxxxxxx" class="btn btn-primary">📞 Hemen Ara</a>
+            <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20kümesiniz%20için%20teklif%20almak%20istiyorum." class="btn btn-secondary">💬 WhatsApp Teklif Al</a>
+        </div>
+    </section>
+
+    <!-- Quick Intro -->
+    <section class="quick-intro">
+        <h2>Hizmetlerimiz</h2>
+        <div class="intro-grid">
+            <div class="intro-card">
+                <h3>🔌 Otomasyon Panoları</h3>
+                <p>PLC tabanlı, manuel/otomatik çalışan profesyonel kumandan panoları</p>
+            </div>
+            <div class="intro-card">
+                <h3>🌬️ Fan & Havalandırma</h3>
+                <p>Sıcaklık kontrollü, zamanlı fan sistemleri ve tünel havalandırma</p>
+            </div>
+            <div class="intro-card">
+                <h3>⚙️ PLC & HMI</h3>
+                <p>Fatek PLC ve Veichi HMI entegrasyonu ile akıllı kontrol</p>
+            </div>
+            <div class="intro-card">
+                <h3>🔧 Kurulum & Bakım</h3>
+                <p>Hızlı montaj, test ve periyodik bakım hizmetleri</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="why-us">
+        <div class="why-us-content">
+            <h2>Neden Biz?</h2>
+            <div class="why-us-grid">
+                <div class="why-us-item">
+                    <h3>✓ 10+ Yıl Tecrübe</h3>
+                    <p>Yüzlerce başarılı kümes otomasyon projesi tamamladık.</p>
+                </div>
+                <div class="why-us-item">
+                    <h3>✓ Geniş Hizmet Bölgesi</h3>
+                    <p>Eskişehir, Bilecik, Kütahya ve çevre illerde hizmet veriyoruz.</p>
+                </div>
+                <div class="why-us-item">
+                    <h3>✓ Hızlı Müdahale</h3>
+                    <p>Arıza bildirimi sonrası 24 saat içinde hizmetimdeyin.</p>
+                </div>
+                <div class="why-us-item">
+                    <h3>✓ Yerinde Çözüm</h3>
+                    <p>Mobil ekip ile sahada tasarım, kurulum ve sorun çözümü.</p>
+                </div>
+                <div class="why-us-item">
+                    <h3>✓ Kaliteli Malzeme</h3>
+                    <p>Sertifikalı, garantili endüstriyel ürünler kullanıyoruz.</p>
+                </div>
+                <div class="why-us-item">
+                    <h3>✓ Uygun Fiyat</h3>
+                    <p>Bütçenize uygun, ekonomik çözümler sunuyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References Preview -->
+    <section class="references">
+        <h2>Son Projelerimiz</h2>
+        <div class="references-grid">
+            <div class="ref-card">
+                <div class="ref-image">🏭</div>
+                <div class="ref-content">
+                    <h3>Eskişehir - Çiftçilik</h3>
+                    <p>4 fan + Otomasyon pano sistemi kurulumu</p>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-image">🐔</div>
+                <div class="ref-content">
+                    <h3>Bilecik - Broiler Üretimi</h3>
+                    <p>Sıcaklık kontrollü havalandırma sistemi</p>
+                </div>
+            </div>
+            <div class="ref-card">
+                <div class="ref-image">⚡</div>
+                <div class="ref-content">
+                    <h3>Kütahya - Tavuk Çiftliği</h3>
+                    <p>PLC ve HMI entegrasyonu ile tam otomasyon</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>👉 Kümesiniz için Teklif Alın</h2>
+        <p>Hemen iletişime geçin, ücretsiz değerlendirme yapın</p>
+        <a href="iletisim.html" class="btn btn-secondary" style="border-color: white; color: var(--primary); background: white;">Teklif Formu</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Süleyman Şener - Kümes Otomasyon Sistemleri. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20kümesiniz%20için%20teklif%20almak%20istiyorum." class="whatsapp-btn" title="WhatsApp ile Teklif Al">💬</a>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('active');
+        });
+
+        // Close menu when link clicked
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

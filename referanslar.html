@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referanslar | Kümes Otomasyon Sistemleri</title>
+    <meta name="description" content="Başarıyla tamamlanan kümes otomasyon projeleri. Gerçek saha örnekleri ve müşteri referansları.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2c5aa0;
+            --accent: #ff9500;
+            --light: #f5f7fa;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 10px;
+                background: var(--primary);
+                padding: 20px;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Filter Buttons */
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .project-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .project-title {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .project-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .project-details {
+            border-top: 1px solid #e0e0e0;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .detail-item {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .detail-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--light);
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 60px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* CTA */
+        .cta {
+            background: var(--primary);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #ff8500;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #0d1f2d;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: white;
+            text-decoration: none;
+            z-index: 999;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">⚙️ KUMAĞ.COM</div>
+            <ul id="menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="hizmetler.html">Hizmetler</a></li>
+                <li><a href="referanslar.html">Referanslar</a></li>
+                <li><a href="hakkimda.html">Hakkımda</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Başarılı Projelerimiz</h1>
+        <p>Gerçek saha örnekleri ve müşteri referansları</p>
+    </section>
+
+    <!-- Stats -->
+    <section class="container">
+        <div class="stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Tamamlanan Proje</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Memnun Müşteri</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Yıl Tecrübe</p>
+                </div>
+                <div class="stat-item">
+                    <h3>3</h3>
+                    <p>İl Hizmet Bölgesi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="container">
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-image">🏭</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Eskişehir - Inönü</div>
+                    <h3 class="project-title">Tavuk Çiftliği Otomasyonu</h3>
+                    <p class="project-description">Broiler üretim çiftliğine tam otomasyon sistemi kuruldu. 4 adet fan + sıcaklık kontrollü kumanda panosu.</p>
+                    <div class="project-details">
+                        <div class="detail-item">4 Fan + Kumanda Panası</div>
+                        <div class="detail-item">Sıcaklık Sensörü Entegrasyonu</div>
+                        <div class="detail-item">Fatek PLC Sistemi</div>
+                        <div class="detail-item">2024 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-image">🐔</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Bilecik - Pazaryeri</div>
+                    <h3 class="project-title">Kesme Tavukçuluk İşletmesi</h3>
+                    <p class="project-description">Entegre tavukçuluk işletmesinin havalandırma ve otomasyon sistemi tamamen yenilendi.</p>
+                    <div class="project-details">
+                        <div class="detail-item">Tünel Havalandırma Sistemi</div>
+                        <div class="detail-item">6 Adet İndüstriyel Fan</div>
+                        <div class="detail-item">Otomatik Kumanda Panası</div>
+                        <div class="detail-item">2024 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-image">⚡</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Kütahya - Emet</div>
+                    <h3 class="project-title">Hibrit Sistem Kurulumu</h3>
+                    <p class="project-description">Veichi HMI dokunmatik panel ve Fatek PLC entegrasyonlu modern kumeste kontrol sistemi.</p>
+                    <div class="project-details">
+                        <div class="detail-item">Veichi 7" HMI Paneli</div>
+                        <div class="detail-item">Fatek PLC Programlama</div>
+                        <div class="detail-item">5 Fan Kontrolü</div>
+                        <div class="detail-item">2023 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-image">🌱</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Eskişehir - Tepebaşı</div>
+                    <h3 class="project-title">Organik Tavukçuluk Projesi</h3>
+                    <p class="project-description">Organik tavukçuluğa özel ekonomik otomasyon çözümü. Manuel ve otomatik çalışma seçeneği.</p>
+                    <div class="project-details">
+                        <div class="detail-item">2 Fan + Kumanda Panosu</div>
+                        <div class="detail-item">Manuel/Otomatik Mod</div>
+                        <div class="detail-item">Zamanlı Kontrolü</div>
+                        <div class="detail-item">2023 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-image">🏢</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Bilecik - Söğüt</div>
+                    <h3 class="project-title">Endüstriyel Tavuk Üretimi</h3>
+                    <p class="project-description">Büyük kapasiteli tavuk üretim işletmesinin tam otomasyon sistemi. Çok zonlu havalandırma.</p>
+                    <div class="project-details">
+                        <div class="detail-item">8 Fan + Kumanda Sistemi</div>
+                        <div class="detail-item">Çok Zonlu Havalandırma</div>
+                        <div class="detail-item">Veri Kaydı Sistemi</div>
+                        <div class="detail-item">2023 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+                <div class="project-image">💡</div>
+                <div class="project-content">
+                    <div class="project-location">📍 Kütahya - Dumlupınar</div>
+                    <h3 class="project-title">Enerji Verimli Sistem</h3>
+                    <p class="project-description">Düşük enerji tüketimine odaklanmış otomasyon çözümü. Maliyeti düşüren akıllı fan kontrolü.</p>
+                    <div class="project-details">
+                        <div class="detail-item">3 Fan + Enerji Tasarrufu</div>
+                        <div class="detail-item">Akıllı Sıcaklık Yönetimi</div>
+                        <div class="detail-item">35% Enerji Tasarrufu</div>
+                        <div class="detail-item">2022 Tamamlanmış</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container">
+        <div class="cta">
+            <h2>Sizin Kümeniz İçin de Çözüm Hazırlayabilir!</h2>
+            <p>Ücretsiz danışmanlık ve teklif için iletişime geçin</p>
+            <a href="iletisim.html" class="btn">Teklif Talep Et</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Süleyman Şener - Kümes Otomasyon Sistemleri. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20referanslarınızı%20gördüm,%20benim%20için%20teklif%20almak%20istiyorum." class="whatsapp-btn">💬</a>
+
+    <script>
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('#menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
